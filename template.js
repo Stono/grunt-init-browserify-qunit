@@ -90,7 +90,9 @@ exports.template = function(grunt, init, done) {
           "browserify-shim"
         ]
       };
-
+      props.scripts = {
+        "start": "grunt build && node server.js"
+      };
       return props;
     });
 
