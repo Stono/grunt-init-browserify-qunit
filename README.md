@@ -5,10 +5,11 @@
 [grunt-init]: http://gruntjs.com/project-scaffolding
 
 ## What it is
-This is a scaffold project which will create a simple web application template, which uses browserify.
-It supports the following:
+This is a scaffold project which will create a simple web application template for a site which is built using Browserify.
+
+It has the following bundled extras:
   - Separate vendor and user bundles (for faster load times).
-  - Uglification and Minifaction of bundles
+  - Uglify and Minification of bundles
   - Automatic bundling of static dependencies
   - Test Driven Development of UI components
 
