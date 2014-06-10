@@ -15,6 +15,9 @@ It supports the following:
 Tests use:
   - QUnit
 
+## Tests being run
+![QUnit Tests](/screenshots/test.png?raw=true "QUnit")
+
 ## Installation
 If you haven't already done so, install [grunt-init][].
 
