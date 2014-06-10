@@ -12,6 +12,7 @@ It has the following bundled extras:
   - Uglify and Minification of bundles
   - Automatic bundling of static dependencies
   - Test Driven Development of UI components
+  - Simple MVP approach for the web application
 
 Tests use:
   - QUnit
