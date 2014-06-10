@@ -20,6 +20,27 @@ Tests use:
 ## Tests being run
 ![QUnit Tests](/screenshots/test.png?raw=true "QUnit")
 
+## What the actual shell (view source) looks like
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <link rel="stylesheet" href="/css/bundle-static.min.css">
+</head>
+
+<body>
+    <div id="container" class="container-fluid">
+    </div>
+    <script type="text/javascript" src="/js/bundle-static.min.js"></script>
+    <script type="text/javascript" src="/js/bundle-app.min.js"></script>
+</body>
+
+</html>
+```
+
 ## Installation
 If you haven't already done so, install [grunt-init][].
 
