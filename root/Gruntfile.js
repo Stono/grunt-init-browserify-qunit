@@ -9,8 +9,7 @@ var global_modules = [
   'domready',
   'mustache', 
   'location-bar',
-  'events',
-  'superagent'
+  'events'
 ];
 module.exports = function(grunt) {
 
@@ -25,7 +24,7 @@ module.exports = function(grunt) {
           external: ['*']
         },
     	files: {
-          'generated/js/deps.js': ['app.js']
+          'generated/js/bundle-static.js': ['app.js']
         }
       },
       app: {
@@ -35,7 +34,7 @@ module.exports = function(grunt) {
           transform: ['brfs'],
         },
         files: {
-          'generated/js/app.js': ['app.js']
+          'generated/js/bundle-app.js': ['app.js']
         }
       },
       test: {
@@ -45,9 +44,40 @@ module.exports = function(grunt) {
           transform: ['brfs']
         },
         files: {
-          'generated/js/test.js': ['test/*.test.js']
+          'generated/js/bundle-test.js': ['test/*.test.js']
         }
       },
+    },
+    clean: {
+      'public': {
+        src: ['generated', 'public/js', 'public/css', 'public/fonts', 'public/images']
+      }
+    },
+    copy: {
+      nonmin: {
+        expand: true,
+        cwd: 'generated/js/',
+        src: '**',
+        dest: 'public/js/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      fonts: {
+        expand: true,
+        cwd: 'static/fonts/',
+        src: '**',
+        dest: 'public/fonts/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      images: {
+        expand: true,
+        cwd: 'static/images/',
+        src: '**',
+        dest: 'public/images/',
+        flatten: true,
+        filter: 'isFile'
+      }
     },
     // Will minify the CSS in deps/css to the public folder
     cssmin: {
@@ -61,22 +91,22 @@ module.exports = function(grunt) {
           'public/css/bundle-test.min.css': ['static/css/*.test.css']
         }
       },
-   },
+    },
     // Will uglify the js in deps/js to the public folder
     uglify: {
       'static': {
         files: {
-          'public/js/bundle-static.min.js': ['generated/js/deps.js']
+          'public/js/bundle-static.min.js': ['generated/js/bundle-static.js']
         }
       },
       app: {
         files: {
-          'public/js/bundle-app.min.js': ['generated/js/app.js']
+          'public/js/bundle-app.min.js': ['generated/js/bundle-app.js']
         }
       },
       test: {
         files: {
-          'public/js/bundle-test.min.js': ['generated/js/test.js']
+          'public/js/bundle-test.min.js': ['generated/js/bundle-test.js']
         }
       }
     },
@@ -122,8 +152,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task.
-  grunt.registerTask('build', ['browserify', 'cssmin', 'uglify']);
+  grunt.registerTask('build', ['clean', 'browserify', 'cssmin', 'uglify', 'copy']);
   grunt.registerTask('default', ['jshint', 'build']);
 };

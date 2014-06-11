@@ -12,7 +12,7 @@ app.use(morgan({
 app.use(express.static(__dirname + '/public'));
 
 // API calls
-app.get(/^(api)/(.+)/, function(req, res) {
+app.get(/^(api)\/(.+)/, function(req, res) {
   res.json({message: 'OK!'});
 });
 

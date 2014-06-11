@@ -8,7 +8,12 @@ npm install
 npm start
 ```
 ## Documentation
-_(Coming soon)_
+`npm start` will build the application and start a simple web server on port 8080.
+There are four key pages:
+  - index.html (this page contains non-minified content)
+  - index-min.html (this page contains minified content)
+  - test.html (this page tests non-minified content)
+  - test-min.html (this page tests minified content)
 
 ## Examples
 _(Coming soon)_
