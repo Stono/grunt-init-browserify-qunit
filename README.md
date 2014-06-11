@@ -7,12 +7,14 @@
 ## What it is
 This is a scaffold project which will create a simple web application template for a site which is built using Browserify.
 
+The idea is this init contains everything you need to hit the ground running and create a responsive client side web site.
+
 It has the following bundled extras:
   - Separate vendor and user bundles (for faster load times).
   - Uglify and Minification of bundles
   - Automatic bundling of static dependencies
   - Test Driven Development of UI components
-  - Simple MVP approach for the web application
+  - Simple MVP approach for the web application using a "shimmed" reponsive UI bootstrap.
 
 Tests use:
   - QUnit
